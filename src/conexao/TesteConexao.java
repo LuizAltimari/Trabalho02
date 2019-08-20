@@ -1,12 +1,14 @@
 package conexao;
 
+import java.sql.Connection;
 
 public class TesteConexao {
 
 	public static void main(String[] args) throws Exception{
-		ConnectionFactory con = new ConnectionFactory(); 
+		Connection con = new ConnectionFactory().getConnection(); 
 		
-		System.out.println(con.getConnection());
+		System.out.println(con);
+		con.close();
 	}
 
 }

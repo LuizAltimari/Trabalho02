@@ -10,26 +10,51 @@ public class Proprietario {
 	private String rg;
 	private Date dataDeNascimento;
 	//10)Altere a classe Proprietário para que o atributo Endereço vire uma classe;
-	private Endereco endereco;
+	private String cep;
+
+
+	private Endereco endereco;	
 	
 	
 	//4)Os atributos nome, cpf e rg são obrigatórios (crie um construtor com esses parâmetros)
 	
-	public Proprietario(String nome, String cpf, String rg, Endereco endereco) {
+
+
+	public Proprietario(String nome, String cpf, String rg,String cep, Endereco endereco) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.rg = rg;
 		this.endereco = endereco;
+		this.cep = cep;
 	}
+	
+	
 	
 	//3)Faça o encapsulamento dos atributos da classe Proprietário
 	
+	@Override
+	public String toString() {
+		return "Proprietario [nome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", dataDeNascimento=" + dataDeNascimento
+				+ ", cep=" + cep + ", endereco=" + endereco + "]";
+	}
+
+
+
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+	
 	public String getCpf() {
 		return cpf;
 	}
@@ -56,6 +81,7 @@ public class Proprietario {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+	
 	
 	
 }

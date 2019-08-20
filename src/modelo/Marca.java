@@ -1,5 +1,7 @@
 package modelo;
-import java.util.Date;
+
+
+
 
 //15)Transforme o atributo Marca de um carro em uma classe Marca com nome, nrDeModelos, ano de lançamento e código identificador.
 public class Marca {
@@ -7,16 +9,34 @@ public class Marca {
 	private int idMarca;
 	private String nome;
 	private int nrModelos; 
-	private Date anoLancamento;
+	private int anoLancamento;	
 	
+
+
 	public Marca() {}
 
-	public Marca(int idMarca, String nome, int nrModelos, Date anoLancamento) {
-		super();
+	public Marca(String nome, int nrModelos, int anoLancamento) {
+		//super();
+		
+		this.nome = nome;
+		this.nrModelos = nrModelos;
+		this.anoLancamento = anoLancamento;
+		
+	}
+	
+	public Marca(int idMarca, String nome, int nrModelos, int anoLancamento) {
+		//super();
 		this.idMarca = idMarca;
 		this.nome = nome;
 		this.nrModelos = nrModelos;
 		this.anoLancamento = anoLancamento;
+		
+	}
+
+	@Override
+	public String toString() {
+		return "Marca [idMarca=" + idMarca + ", nome=" + nome + ", nrModelos=" + nrModelos + ", anoLancamento="
+				+ anoLancamento + "]";
 	}
 
 	public int getIdMarca() {
@@ -43,12 +63,18 @@ public class Marca {
 		this.nrModelos = nrModelos;
 	}
 
-	public Date getAnoLancamento() {
+	public int getAnoLancamento() {
 		return anoLancamento;
 	}
 
-	public void setAnoLancamento(Date anoLancamento) {
+	public void setAnoLancamento(int anoLancamento) {
 		this.anoLancamento = anoLancamento;
 	}
+	
+	
+	
+	
+
+	
 		
 }

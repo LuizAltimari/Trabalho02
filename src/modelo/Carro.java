@@ -1,12 +1,13 @@
 package modelo;
-import java.util.Date;
+
+
 
 //5)Implemente uma classe Carro
 public class Carro {
 	//6)Declare os seguintes atributos na classe:
 	private String modelo;
 	private String cor;
-	private Date ano;
+	private int ano;
 	//15)Transforme o atributo Marca de um carro em uma classe Marca com nome, nrDeModelos, ano de lançamento e código identificador.
 	private Marca marca;
 	private String chassi;
@@ -19,6 +20,8 @@ public class Carro {
 	private int marchaAtual;
 	private boolean cambioAutomatico;
 	private double volumeCombustivel; //em litros
+	private String cpf;
+	private int idMarca;
 	
 	//12)Todo veículo tem um proprietário obrigatoriamente (implemente um construtor de veículo passando o proprietário como parâmetro);
 	public Carro(Proprietario proprietario) {
@@ -26,30 +29,40 @@ public class Carro {
 	}
 
 
-	public Carro(String modelo, String cor, Date ano, Marca marca, String chassi, Proprietario proprietario,
-			double velocidadeMaxima, double velocidadeAtual, int nrPortas, boolean tetoSolar, int nrMarchas,
-			boolean cambioAutomatico, double volumeCombustivel) {
-		super();
+	public Carro(String modelo, String cor, int ano, Marca marca, String chassi, Proprietario proprietario,
+			double velocidadeMaxima, int nrPortas, boolean tetoSolar, int nrMarchas,
+			boolean cambioAutomatico, double volumeCombustivel, String cpf, int idMarca) {
+		
 		this.modelo = modelo;
 		this.cor = cor;
 		this.ano = ano;
 		this.marca = marca;
 		this.chassi = chassi;
 		this.proprietario = proprietario;
-		this.velocidadeMaxima = velocidadeMaxima;
-		this.velocidadeAtual = velocidadeAtual;
+		this.velocidadeMaxima = velocidadeMaxima;		
 		this.nrPortas = nrPortas;
 		this.tetoSolar = tetoSolar;
 		this.nrMarchas = nrMarchas;
 		this.cambioAutomatico = cambioAutomatico;
 		this.volumeCombustivel = volumeCombustivel;
-		
+		this.cpf = cpf;
+		this.idMarca = idMarca;
 	}
 
 
 	
 	//7)Faça o encapsulamento da classe Carro e seus atributos
 	
+	@Override
+	public String toString() {
+		return "Carro [modelo=" + modelo + ", cor=" + cor + ", ano=" + ano + ", marca=" + marca + ", chassi=" + chassi
+				+ ", proprietario=" + proprietario + ", velocidadeMaxima=" + velocidadeMaxima + ", velocidadeAtual="
+				+ velocidadeAtual + ", nrPortas=" + nrPortas + ", tetoSolar=" + tetoSolar + ", nrMarchas=" + nrMarchas
+				+ ", marchaAtual=" + marchaAtual + ", cambioAutomatico=" + cambioAutomatico + ", volumeCombustivel="
+				+ volumeCombustivel + ", cpf=" + cpf + ", idMarca=" + idMarca + "]";
+	}
+
+
 	public String getModelo() {
 		return modelo;
 	}
@@ -57,6 +70,26 @@ public class Carro {
 
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
+	}	
+
+
+	public String getCpf() {
+		return cpf;
+	}
+
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+
+	public int getIdMarca() {
+		return idMarca;
+	}
+
+
+	public void setIdMarca(int idMarca) {
+		this.idMarca = idMarca;
 	}
 
 
@@ -70,12 +103,12 @@ public class Carro {
 	}
 
 
-	public Date getAno() {
+	public int getAno() {
 		return ano;
 	}
 
 
-	public void setAno(Date ano) {
+	public void setAno(int ano) {
 		this.ano = ano;
 	}
 
