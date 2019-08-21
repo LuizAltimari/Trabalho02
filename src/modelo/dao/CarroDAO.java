@@ -133,9 +133,8 @@ private Connection con;
 	
 	public boolean remover (String chassi) {
 		try {
-			String sql = "delete from carro where chassi = ?";
-			PreparedStatement stmt = this.con.prepareStatement(sql); 			
-			stmt.setString(1, chassi);
+			String sql = "delete from carro where chassi = '"+chassi+"'";
+			PreparedStatement stmt = this.con.prepareStatement(sql); 				
 			stmt.executeUpdate();
 			return true;
 		}catch(SQLException e) {

@@ -17,7 +17,7 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("\n####################### BEM VINDO AO SISTEMA DE GERENCIAMENTO DE CARROS! #######################\n");
-		String opcao = "s";
+		int opcao = 0;
 		do {
 			System.out.println("O que deseja fazer?");
 			System.out.println("[1] Cadastrar um proprietário \n " +
@@ -25,7 +25,7 @@ public class Main {
 								"[3] Selecionar um proprietário específico \n" +
 								"[4] Atualizar um proprietário \n" +
 								"[5] Remover um proprietário \n" +
-								"[6] Cadastrar um carro" +
+								"[6] Cadastrar um carro \n" +
 								"[7] Selecionar todos os carros \n" +
 								"[8] Selecionar um carro específico \n" +
 								"[9] Atualizar um carro \n" +
@@ -48,56 +48,125 @@ public class Main {
 					cadastrarProprietario(sc);
 					break;
 				case 2:
-					selecionarTodosProprietarios();
+					ArrayList<Proprietario> prop = selecionarTodosProprietarios();
+					for(Proprietario p : prop) {
+						System.out.println(p);
+					}
 					break;
 				case 3:
+					System.out.print("Informe o CPF do proprietário a ser buscado: ");
+					String cpf = sc.nextLine();
+					cpf = sc.nextLine();
+					Proprietario p = selecionarProprietario(cpf);
+					System.out.println(p);
 					break;
 				case 4:
+					System.out.print("Informe o CPF do proprietário a ser atualizado: ");
+					String cpf1 = sc.nextLine();
+					cpf1 = sc.nextLine();
+					p = selecionarProprietario(cpf1);
+					atualizarProprietario(p, sc);
 					break;
 				case 5:
+					System.out.print("Informe o CPF do proprietário a ser removido: ");
+					String cpf2 = sc.nextLine();
+					cpf2 = sc.nextLine();
+					removerProprietario(cpf2);
 					break;
 				case 6:
 					cadastrarCarro(sc);
 					break;
 				case 7:
-					selecionarTodosProprietarios();
+					ArrayList<Carro> carros = selecionarTodosCarros();
+					for(Carro c : carros) {
+						System.out.println(c);
+					}
 					break;
 				case 8:
+					System.out.print("Informe o chassi do carro a ser buscado: ");
+					String chassi = sc.nextLine();
+					chassi = sc.nextLine();
+					Carro c = selecionarCarro(chassi);
+					System.out.println(c);
 					break;
 				case 9:
+					System.out.print("Informe o chassi do carro a ser atualizado: ");
+					String chassi1 = sc.nextLine();
+					chassi1 = sc.nextLine();
+					c = selecionarCarro(chassi1);
+					atualizarCarro(c, sc);
 					break;
 				case 10:
+					System.out.print("Informe o chassi do carro a ser removido: ");
+					String chassi2 = sc.nextLine();
+					chassi2 = sc.nextLine();
+					removerCarro(chassi2);
 					break;
 				case 11:
 					cadastrarEndereco(sc);
 					break;
 				case 12:
-					selecionarTodosEnderecos();
+					ArrayList<Endereco> ends = selecionarTodosEnderecos();
+					for(Endereco e : ends) {
+						System.out.println(e);
+					}
 					break;
 				case 13:
+					System.out.print("Informe o CEP do endereco a ser buscado: ");
+					String cep = sc.nextLine();
+					cep = sc.nextLine();
+					Endereco e = selecionarEndereco(cep);
+					System.out.println(e);
 					break;
 				case 14:
+					System.out.print("Informe o CEP do endereco a ser atualizado: ");
+					String cep1 = sc.nextLine();
+					cep1 = sc.nextLine();
+					e = selecionarEndereco(cep1);
+					atualizarEndereco(e, sc);
 					break;
 				case 15:
+					System.out.print("Informe o CEP do endereco a ser removido: ");
+					String cep2 = sc.nextLine();
+					cep2 = sc.nextLine();
+					removerEndereco(cep2);
 					break;
 				case 16:
 					cadastrarMarca(sc);
 					break;
 				case 17:
-					selecionarTodasMarcas();
+					ArrayList<Marca> marcs = selecionarTodasMarcas();
+					for(Marca m : marcs) {
+						System.out.println(m);
+					}
 					break;
 				case 18:
+					System.out.print("Informe a identificação da marca a ser buscada: ");
+					int idMarca = sc.nextInt();
+					Marca m = selecionarMarca(idMarca);
+					System.out.println(m);
 					break;
 				case 19:
+					System.out.print("Informe a identificação da marca a ser atualizada: ");
+					idMarca = sc.nextInt();
+					m = selecionarMarca(idMarca);
+					atualizarMarca(m, sc);
 					break;
 				case 20:
+					System.out.print("Informe a identificação da marca a ser removida: ");
+					idMarca = sc.nextInt();					
+					removerMarca(idMarca);
 					break;
 				default:
+					System.out.println("\n Saindo..............");
 				
 			}
-			System.out.print("\n Deseja continuar (s/n): ");
-			opcao = sc.nextLine();			
-		} while(opcao.equals("s"));
+			
+			
+			System.out.print("\n Deseja continuar (1 = sim/ 0 = não): ");
+			opcao = sc.nextInt();			
+			
+		} while(opcao != 0);
 		System.out.println("\n####################### OBRIGADO POR UTILIZAR O SISTEMA. VOLTE SEMPRE! #######################\n");
 	}
 	
